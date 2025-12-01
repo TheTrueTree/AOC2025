@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-fn returnPosition(l: i32, r: i32, m: char) -> i32 {
+fn return_position(l: i32, r: i32, m: char) -> i32 {
     let x:i32 = if m == 'R' {l + r} else {if l - r % 100 < 0 {l - r % 100 + 100} else {l - r}};
     return x % 100;
 }
@@ -20,7 +20,7 @@ fn main() {
         let number = command.replace(operator, "");
         let number = number.parse::<i32>().unwrap();
 
-        starting_position = returnPosition(starting_position, number as i32, operator);
+        starting_position = return_position(starting_position, number as i32, operator);
         if starting_position == 0 {
             password = password + 1;
         }
